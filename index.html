@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eyeliner &amp; Mortgages Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="dialog">
+    <div class="titlebar">Eyeliner &amp; Mortgages - Enter Chat</div>
+    <form id="loginForm" class="dialog-body" autocomplete="off">
+      <p class="big">Welcome to the chat for people who used to be a lot more dramatic.</p>
+      <label for="nick">Please enter a nickname:</label>
+      <input id="nick" type="text" maxlength="16" spellcheck="false" autofocus>
+      <label class="check">
+        <input id="adult" type="checkbox">
+        I am 18 or over and I agree to the house rules.
+      </label>
+      <ul class="rules">
+        <li>Be kind. No hate, harassment or spam.</li>
+        <li>No sharing other people's personal details.</li>
+        <li>Moderators can mute or remove anyone.</li>
+      </ul>
+      <div id="loginError" class="error"></div>
+      <div class="buttons"><button type="submit">Connect</button></div>
+    </form>
+    <div class="statusbar">Applet ChatClient loaded</div>
+  </div>
+</div>
+
+<!-- CHAT -->
+<div id="chat" hidden>
+  <div class="roombar">
+    <span>Room: <b id="roomName">-</b></span>
+    <label class="sound"><input id="sound" type="checkbox" checked> Beep</label>
+  </div>
+  <div class="main">
+    <div id="log" class="sunken" aria-live="polite"></div>
+    <div class="side">
+      <div class="paneltitle">Rooms</div>
+      <ul id="rooms" class="sunken list"></ul>
+      <div class="paneltitle">Users <span id="userCount"></span></div>
+      <ul id="users" class="sunken list"></ul>
+    </div>
+  </div>
+  <form id="form" autocomplete="off">
+    <input id="input" type="text" maxlength="300" placeholder="Type a message, or /help">
+    <button type="submit">Send</button>
+  </form>
+  <div id="status" class="statusbar">Connecting...</div>
+</div>
+
+<script src="chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "retro-chatroom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Retro early-2000s style chatroom",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

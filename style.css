@@ -1,0 +1,107 @@
+/* Late-90s / early-2000s Java chat applet look */
+:root {
+  --grey: #c0c0c0;
+  --light: #ffffff;
+  --mid: #808080;
+  --dark: #404040;
+  --navy: #000080;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--grey);
+  color: #000;
+  font: 13px "Times New Roman", Times, serif;
+}
+
+button, input, .list, #log { font: 13px Arial, Helvetica, sans-serif; }
+
+/* bevel helpers */
+button {
+  background: var(--grey);
+  color: #000;
+  padding: 3px 14px;
+  border: 2px solid;
+  border-color: var(--light) var(--dark) var(--dark) var(--light);
+  cursor: pointer;
+}
+button:active { border-color: var(--dark) var(--light) var(--light) var(--dark); padding: 4px 13px 2px 15px; }
+button:focus-visible { outline: 1px dotted #000; outline-offset: -5px; }
+
+input[type=text] {
+  background: #fff;
+  border: 2px solid;
+  border-color: var(--mid) var(--light) var(--light) var(--mid);
+  padding: 3px 4px;
+}
+
+.sunken {
+  background: #fff;
+  border: 2px solid;
+  border-color: var(--mid) var(--light) var(--light) var(--mid);
+}
+
+/* login dialog */
+#login { height: 100%; display: flex; align-items: center; justify-content: center; padding: 12px; }
+.dialog {
+  width: 100%;
+  max-width: 400px;
+  background: var(--grey);
+  border: 2px solid;
+  border-color: var(--light) var(--dark) var(--dark) var(--light);
+  box-shadow: 1px 1px 0 #000;
+}
+.titlebar {
+  background: linear-gradient(90deg, var(--navy), #1084d0);
+  color: #fff;
+  font: bold 13px Arial, Helvetica, sans-serif;
+  padding: 3px 6px;
+}
+.dialog-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.dialog-body .big { margin: 0 0 4px; font-size: 15px; }
+.dialog-body label { font-family: Arial, Helvetica, sans-serif; }
+.check { display: flex; gap: 6px; align-items: flex-start; }
+.rules { margin: 0; padding-left: 18px; font-size: 12px; color: var(--dark); }
+.error { color: #b00000; min-height: 16px; font-family: Arial, Helvetica, sans-serif; }
+.buttons { text-align: right; }
+
+/* chat layout */
+#chat { height: 100%; display: flex; flex-direction: column; padding: 6px; gap: 6px; }
+#chat[hidden], #login[hidden] { display: none; }
+.roombar { display: flex; justify-content: space-between; align-items: center; font-family: Arial, Helvetica, sans-serif; }
+.sound { display: flex; gap: 4px; align-items: center; }
+.main { flex: 1; display: flex; gap: 6px; min-height: 0; }
+#log { flex: 1; overflow-y: auto; padding: 4px 6px; line-height: 1.35; word-wrap: break-word; overflow-wrap: anywhere; }
+.side { width: 170px; display: flex; flex-direction: column; min-height: 0; gap: 3px; }
+.paneltitle { font: bold 12px Arial, Helvetica, sans-serif; }
+.list { list-style: none; margin: 0; padding: 2px; overflow-y: auto; }
+#rooms { flex: 0 0 38%; }
+#users { flex: 1; }
+.list li { padding: 1px 4px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list li:hover { background: var(--navy); color: #fff !important; }
+.list li.current { font-weight: bold; }
+
+#form { display: flex; gap: 6px; }
+#input { flex: 1; min-width: 0; }
+
+.statusbar {
+  font: 12px Arial, Helvetica, sans-serif;
+  padding: 2px 6px;
+  border: 1px solid;
+  border-color: var(--mid) var(--light) var(--light) var(--mid);
+}
+
+/* message lines */
+.line .nick { font-weight: bold; }
+.sys { color: #007000; }
+.err { color: #b00000; }
+.action { font-style: italic; }
+.pm { color: #800080; }
+.mention { background: #ffff99; }
+
+@media (max-width: 520px) {
+  .side { width: 110px; }
+}
